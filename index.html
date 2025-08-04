@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrossel Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @keyframes slider {
+        0%, 25% {
+          background-image: url(./img/biblioteca.jpeg);
+        }
+        26%, 50% {
+          background-image: url(./img/cantina.jpeg);
+        }
+        51%, 75% {
+          background-image: url(./img/jardim.jpeg);
+        }
+        76%, 100% {
+          background-image: url(./img/saida.jpeg);
+        }
+      }
+
+      @keyframes fade {
+        0% { opacity: 0; }
+        15%, 85% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      .animate-slider-fade {
+        animation: slider 12s infinite, fade 4s;
+      }
+
+      .descricao::after {
+        content: "Biblioteca - Alívio de estresse!";
+        animation: textoTroca 12s infinite;
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 1rem;
+        font-weight: normal;
+        text-align: center;
+      }
+
+      @keyframes textoTroca {
+        0%, 25% {
+          content: "Biblioteca - Alívio de estresse!";
+        }
+        26%, 50% {
+          content: "Cantina - Melhor Bolo de chocolate!";
+        }
+        51%, 75% {
+          content: "Jardim - Momentos de Tranquilidade!";
+        }
+        76%, 100% {
+          content: "Saída - Finalmente!!!";
+        }
+      }
+    </style>
+  </head>
+  <body class="grid place-items-center h-screen bg-[rgba(0,0,0,0.2)] m-0">
+    <div class="carrossel descricao relative w-[80%] h-[80%] shadow-[0_0_16px_black] rounded-[12px] bg-center bg-cover overflow-hidden animate-slider-fade"></div>
+  </body>
+</html>
+
